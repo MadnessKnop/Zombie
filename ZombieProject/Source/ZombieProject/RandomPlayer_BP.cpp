@@ -30,6 +30,24 @@ void ARandomPlayer_BP::Tick( float DeltaTime )
 void ARandomPlayer_BP::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	//MovementInput
+	InputComponent->BindAxis("MoveForward", this, &ARandomPlayer_BP::MoveForward);
+	InputComponent->BindAxis("MoveRight", this, &ARandomPlayer_BP::MoveRight);
+}
 
+void ARandomPlayer_BP::MoveForward(float amount)
+{
+	if (Controller && amount)
+	{
+		AddMovementInput(GetActorForwardVector(), amount);
+	}
+}
+
+void ARandomPlayer_BP::MoveRight(float amount)
+{
+	if (Controller && amount)
+	{
+		AddMovementInput(GetActorRightVector(), amount);
+	}
 }
 
