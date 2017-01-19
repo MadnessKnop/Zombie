@@ -32,6 +32,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	bool GetDoorOpen();
+
 protected:
 
 	void MoveForward(float amount);
@@ -44,7 +46,7 @@ protected:
 
 	void OpenDoor();
 
-	bool GetDoorOpen();
+	
 
 	void IsDoorOpenTrue(bool DoorOpened);
 

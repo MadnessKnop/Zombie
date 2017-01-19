@@ -3,12 +3,12 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "DestroyDoor.generated.h"
 #include "RandomPlayer_BP.h"
+#include "DestroyDoor.generated.h"
 
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class ZOMBIEPROJECT_API UDestroyDoor : public UActorComponent
 {
 	GENERATED_BODY()

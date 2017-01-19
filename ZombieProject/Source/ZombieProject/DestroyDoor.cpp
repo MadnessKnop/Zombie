@@ -35,10 +35,10 @@ void UDestroyDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorCo
 
 void UDestroyDoor::OpenAngle()
 {
-	ARandomPlayer_BP * MyPawn = Cast<ARandomPlayer_BP>(UGameplayStatics::GetPlayPawn(GetWorld(), 0));
+	ARandomPlayer_BP * MyPawn = Cast<ARandomPlayer_BP>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 	if (MyPawn->GetDoorOpen())
 	{
-		GetOwner()->SetActorRotation(FRotator(0.f, 90.f, 0.f));
+		GetOwner()->Destroy();
 	}
 }
 
