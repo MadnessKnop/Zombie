@@ -41,5 +41,14 @@ protected:
 	void TurnAtRate(float Rate);
 
 	void LookUpAtRate(float Rate);
-	
+
+	void OpenDoor();
+
+	bool GetDoorOpen();
+
+	void IsDoorOpenTrue(bool DoorOpened);
+
+private:
+
+	bool DoorOpen = false;
 };

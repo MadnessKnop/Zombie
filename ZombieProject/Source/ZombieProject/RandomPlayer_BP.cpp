@@ -37,7 +37,7 @@ void ARandomPlayer_BP::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-
+	InputComponent->BindAction("OpenDoor", IE_Pressed, this, &ARandomPlayer_BP::OpenDoor);
 	//MovementInput
 	InputComponent->BindAxis("MoveForward", this, &ARandomPlayer_BP::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &ARandomPlayer_BP::MoveRight);
@@ -71,3 +71,25 @@ void ARandomPlayer_BP::LookUpAtRate(float Rate)
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
+void ARandomPlayer_BP::OpenDoor()
+{
+	
+
+	IsDoorOpenTrue(true);
+
+	if(DoorOpen == true)
+	{
+		GEngine->AddOnScreenDebugMessage(0, 15.f, FColor::Black, "The Door Is Open");
+	}
+}
+
+void ARandomPlayer_BP::IsDoorOpenTrue(bool DoorOpened)
+{
+	DoorOpen = DoorOpened;
+	
+}
+
+bool ARandomPlayer_BP::GetDoorOpen()
+{
+	return DoorOpen;
+}
