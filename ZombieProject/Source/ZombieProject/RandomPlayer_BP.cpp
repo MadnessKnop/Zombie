@@ -38,6 +38,9 @@ void ARandomPlayer_BP::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	InputComponent->BindAction("OpenDoor", IE_Pressed, this, &ARandomPlayer_BP::OpenDoor);
+	InputComponent->BindAction("Pickup", IE_Pressed, this, &ARandomPlayer_BP::BeginPickup);
+	InputComponent->BindAction("Pickup", IE_Released, this, &ARandomPlayer_BP::EndPickup);
+	InputComponent->BindAction("UseItem", IE_Pressed, this, &ARandomPlayer_BP::UseItem);
 	//MovementInput
 	InputComponent->BindAxis("MoveForward", this, &ARandomPlayer_BP::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &ARandomPlayer_BP::MoveRight);
@@ -81,6 +84,20 @@ void ARandomPlayer_BP::OpenDoor()
 	{
 		GEngine->AddOnScreenDebugMessage(0, 15.f, FColor::Black, "The Door Is Open");
 	}
+}
+
+void ARandomPlayer_BP::BeginPickup()
+{
+	IsPickingUp = true;
+}
+
+void ARandomPlayer_BP::EndPickup()
+{
+	IsPickingUp = false;
+}
+
+void ARandomPlayer_BP::UseItem()
+{
 }
 
 void ARandomPlayer_BP::IsDoorOpenTrue(bool DoorOpened)

@@ -33,6 +33,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	bool GetDoorOpen();
+	bool IsPickingUp = false;
+	TArray<FString> Inventory;
 
 protected:
 
@@ -46,7 +48,11 @@ protected:
 
 	void OpenDoor();
 
-	
+	void BeginPickup();
+
+	void EndPickup();
+
+	void UseItem();
 
 	void IsDoorOpenTrue(bool DoorOpened);
 
